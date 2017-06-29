@@ -1,0 +1,110 @@
+<div class="col-md-12 jd-margin-top">
+    <div class="col-md-12">
+        <!--INFO-->
+        <div class="row col-md-12 text-primary">
+            <i class="fa fa-info-circle"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span>
+        </div>
+        <div class="row col-md-6">
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Received Jesus On:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.receivedJesusDate}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Water Baptism:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.waterBaptismDate}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Water Baptism Area:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.waterBaptismArea}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Water Baptism By:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.waterBaptismConveyor}}</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Where Jesus Received:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.receivedJesusArea}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Holly Spirit Baptism:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.HolySpiritBaptismDate}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Holly spirit Baptism Area:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.HolySpiritBaptismArea}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Converyer:</div>
+                <div class="col-md-6 jd-text text-b">{{believer.HolySpiritBaptismConveyor}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="col-md-12 jd-border-top-b text-right">
+        <button type="button" class="btn btn-primary" ng-click="believerDetailsOpen()">
+            <i class="fa fa-edit">&nbsp;</i>Edit
+        </button>
+    </div>
+</div>
+
+<div class="col-md-12 jd-margin-top">
+    <div class="col-md-6">
+        <!--Cell Groups-->
+        <div class="row col-md-12 text-primary">
+            <i class="fa fa-group"></i>&nbsp;&nbsp;<span class="jd-caption">Cell Group</span>
+        </div>
+        <div class="row" ng-if="!chmsMember.groups.data.length > 0">
+            <div class="col-md-12 text-danger">Not assigned to any cell groups</div>
+        </div>
+        <div ng-if="chmsMember.groups.data.length > 0" ng-repeat="g in chmsMember.groups.data">
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Name:</div>
+                <div class="col-md-6 jd-text text-b">{{g.groupName}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Date Joined:</div>
+                <div class="col-md-6 jd-text text-b">Date</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Role:</div>
+                <div class="col-md-6 jd-text text-b">My Role</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Attendance:</div>
+                <div class="col-md-6 jd-text text-b">100%</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <!--Zones-->
+        <div class="row col-md-12 text-primary">
+            <i class="fa fa-group"></i>&nbsp;&nbsp;<span class="jd-caption">Zones</span>
+        </div>
+        <div class="row" ng-if="!chmsMember.memberZones.data.length > 0">
+            <div class="col-md-12 text-danger">Not assigned to any zones</div>
+        </div>
+        <div ng-if="chmsMember.memberZones.data.length > 0" ng-repeat="z in chmsMember.memberZones.data">
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Name:</div>
+                <div class="col-md-6 jd-text text-b">{{z.zone.name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Date Joined:</div>
+                <div class="col-md-6 jd-text text-b">Date</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Role:</div>
+                <div class="col-md-6 jd-text text-b">My Role</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-title text-faint">Attendance:</div>
+                <div class="col-md-6 jd-text text-b">100%</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EDIT MODAL-->
+<div ng-include="'views/members/edit-believer-details.html'"></div>

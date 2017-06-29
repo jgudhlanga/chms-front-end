@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">General Settings</div>
+    </div>
+    <div class="col-md-6 text-right">
+         <a href="/setup"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+<div class="row">
+    <div class="row col-md-6">
+        <form method="post">
+            <div class="col-md-12">
+                <div class="row form-group">
+                    <label for="appBrand" class="col-md-2 col-sm-6">Brand</label>
+                    <div class="col-md-10 col-sm-6">
+                        <input type="text" id="appBrand" ng-model="appSettings.appBrand" class="form-control input-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row form-group">
+                    <label for="appLogo" class="col-md-2 col-sm-6">Logo</label>
+                    <div class="col-md-10 col-sm-6">
+                        <input type="file" id="appLogo" ng-model="appSettings.appLogo" class="form-control input-sm">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row col-md-12">
+    <div class="col-md-6 jd-border-top-b"></div>
+</div>
+<div class="row">
+    <div class="col-md-6 jd-margin-top">
+        <div class="col-md-12">
+            <div class="jd-page-header">Security Settings</div>
+        </div>
+        <div class="col-md-3 col-sm-12" ng-controller="ChmsRoleCtrl">
+            <a ng-click="openRolesModal()" class="btn btn-primary">
+                <div ng-if="!loadingRoals"><span class="badge">{{roles.length}}</span> Chms Roles</div>
+                <span ng-if="loadingRoals" loading loading-message="loading..." loading-class="text-w"></span>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <a href="#" class="btn btn-primary"><span class="badge">3</span> System ACL</a>
+        </div>
+    </div>
+</div>
+<!--INCLUDE ROLES MODAL-->
+<div ng-include="'views/setup/chms-roles.html'"></div>

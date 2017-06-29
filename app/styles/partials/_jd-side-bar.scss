@@ -1,0 +1,30 @@
+.jd-left-aside{
+
+    padding: 80px 0 0 0 !important;
+    width: $jd-left-panel-width !important;
+    ul > li{
+      margin: 0; padding: 0 !important; border-top: 1px solid lighten($jd-color-b, 80%);
+      &:first-child{
+          border-top: 0;
+      }
+      a{
+        @extend %textDecorationNone;
+        display: block; line-height: 30px; padding: 5x;
+        color: $jd-color-a;
+        &:hover{
+          @include jdTransition();
+          color: lighten($jd-color-b, 46%);
+          border-left: 3px solid darken($jd-color-c, 10%);
+          background-color: $jd-color-b;
+        }
+        &:focus, a:active{
+          background-color: $jd-color-b;
+          border-left: 3px solid darken($jd-color-c, 10%);
+        }
+      }
+    }
+
+    @media  screen  and (max-width: 900px) {
+        display: none;
+    }
+}

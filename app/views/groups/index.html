@@ -1,0 +1,17 @@
+<!--HEADER-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">Cell Groups List</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/members"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+        <a href="/groups/dashboard"><i class="fa fa-bar-chart fa-2x"></i></a>
+        <a ng-click="open()"><i class="fa fa-plus-circle fa-2x"></i></a>
+    </div>
+</div>
+<!-- LOADING -->
+<div ng-if="groupsLoading" loading ></div>
+<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize ui-grid-exporter ui-grid-move-columns class="grid" ng-style="getTableHeight()"></div>
+
+<!-- add group modal -->
+<div ng-include="'views/groups/add-edit-group.html'"></div>

@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">{{chmsZone.name}} Family View</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/zones"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+
+<!--Loading-->
+<div ng-if="processing" loading ></div>
+
+<div class="row" ng-if="!processing">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div ng-if="message" message message-class="alert alert-{{messageClass}}" alert="{{message}}"></div>
+            <div ng-if="busyWait" loading loading-message="busy wait..." class="text-w"></div>
+            <div class="col-md-12 text-right">
+                <a ng-click="open()" title="Edit Family">
+                    <i class="fa fa-pencil fa-2x"></i>
+                </a>&nbsp;
+                <a ng-if="chmsZone.isActive" title="Deactivate" ng-click="activateZone(chmsZone.id, 0)">
+                    <i class="fa fa-toggle-off fa-2x text-orange"></i>
+                </a>
+                <a ng-if="!chmsZone.isActive" title="Activate" ng-click="activateZone(chmsZone.id, 1)">
+                    <i class="fa fa-toggle-on fa-2x text-green"></i>
+                </a>
+                &nbsp;<a ng-click="deleteZone(chmsZone.id)" title="Delete">
+                    <i class="fa fa-trash-o fa-2x text-red"></i>
+                </a>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <i class="fa fa-info-circle"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span><br/>
+                    <span class="jd-title">Family Leader:&nbsp;&nbsp;</span><span class="jd-text">{{chmsZone.zoneLeader}}</span><br/>
+                    <span class="jd-title">Total Groups:&nbsp;&nbsp;</span><span class="jd-text">{{chmsZone.zoneGroups.data.length}}</span><br/>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-flag-checkered"></i>&nbsp;&nbsp;<span class="jd-caption">Address</span>
+                    <address>
+                        {{chmsZone.meetingLocation}}
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row jd-margin-top">
+                    <div class="col-md-6">
+                        <div class="jd-page-header">Cell Groups</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                            <a data-toggle="modal" title="Add Cell Groups" data-target="#cell-groups"><i class="fa fa-plus-circle fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-12" ng-if="chmsZone.zoneGroups.data.length > 0">
+                        <div class="col-md-2 col-xs-12 jd-padding-1" ng-repeat="m in chmsZone.zoneGroups.data">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-if="!chmsZone.zoneGroups.data.length > 0">
+                        <div class="text-center text-danger">No zone groups found !</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- zone groups modal -->
+<div ng-include="'modals/zone-groups.html'"></div>

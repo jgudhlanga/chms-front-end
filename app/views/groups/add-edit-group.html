@@ -1,0 +1,86 @@
+<script type="text/ng-template" id="add-edit-group.html">
+    <form method="post" role="form" ng-submit="saveGroup()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h3 class="modal-title text-left">{{groupCrudTitle}}</h3>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Group successfully created, add another below"><span>&nbsp;<a ng-click="view()" >- or View {{newGroup.name}}</a></span></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='name' class='col-md-3'>Name</label>
+                    <div class="col-md-9">
+                        <input type="text" id="name" required class="form-control input-sm" ng-model="chmsGroup.name"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <datepicker date-format="d-M-yyyy" selector="form-control" button-prev="<i class='fa    fa-arrow-circle-o-left text-white'></i>" button-next="<i class='fa fa-arrow-circle-o-right text-white'></i>">
+                    <div class="form-group">
+                        <label for='dateFormed' class='col-md-3'>
+                            Date Formed&nbsp;<i class="fa fa-lg fa-calendar"></i>
+                        </label>
+                        <div class="col-md-9">
+                            <input id="dateFormed" ng-model="chmsGroup.dateFormed" type="text"  class="form-control input-sm"/>
+                        </div>
+                    </div>
+                </datepicker>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='meetingTime' class='col-md-3'>Meeting Time</label>
+                    <div class="col-md-9">
+                        <input id="meetingTime" type="text" class="form-control input-sm" ng-model="chmsGroup.meetingTime">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='groupLeaderId' class='col-md-3'>Group Leader</label>
+                    <div class="col-md-9">
+                        <select id="groupLeaderId"  ng-model="chmsGroup.groupLeaderId" class="form-control input-sm">
+                            <option ng-repeat="m in chmsMembership" value="{{m.id}}">{{m.firstName}}&nbsp;{{m.surname}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='color' class='col-md-3'>Address</label>
+                    <div class="col-md-9">
+                        <textarea id="meetingLocation" rows="2" class="form-control input-sm" ng-model="chmsGroup.meetingLocation"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='description' class='col-md-3'>Description</label>
+                    <div class="col-md-9">
+                        <textarea id="description" rows="2" class="form-control input-sm" ng-model="chmsGroup.description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='color' class='col-md-3'>Color Code</label>
+                    <div class="col-md-9">
+                        <input id="color" type="color" class="form-control input-sm" ng-model="chmsGroup.color">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">{{groupCrudButton}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

@@ -1,0 +1,42 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome/fonts/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
+// endbower
+
+@import "partials/variables";
+@import "mixins/jd-mixins";
+@import "partials/placeholders";
+@import "partials/miscelleneous";
+@import "partials/jd-sup-sub-script";
+@import "partials/jd-images";
+@import "partials/jd-text";
+@import "partials/jd-modals";
+@import "partials/jd-positioning";
+@import "partials/jd-header";
+@import "partials/jd-side-bar";
+@import "partials/jd-main-section";
+@import "partials/jd-footer";
+@import "partials/jd-backgrounds";
+@import "partials/jd-boxes";
+@import "partials/jd-badges";
+@import "partials/jd-view";
+@import "partials/jd-tables";
+@import "partials/jd-form-sign-in";
+
+
+body {
+  padding: 0;
+  background-color: $jd-color-d;
+  color: $jd-color-b;
+  //background: url('../images/theme-1.jpg');
+  a{
+    &:hover{
+      text-decoration: none; cursor: pointer;
+    }
+  }
+}
+.jd-content-wrapper{
+  overflow: auto; margin: 0;
+}

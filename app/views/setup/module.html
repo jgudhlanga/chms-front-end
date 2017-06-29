@@ -1,0 +1,59 @@
+<form class="form-horizontal" ng-submit="saveModule()">
+
+    <div page-header page-title="{{title}}"></div>
+
+    <!--loading-->
+    <div ng-if="loadingModule" loading ></div>
+    <div class="row" ng-if="!loadingModule">
+        <div class="col-md-12">
+             <div class="jd-border-container">
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Name</span>
+                        <input type="text" ng-model="chmsModule.name" class="form-control input-sm" s>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Title</span>
+                        <input type="text" ng-model="chmsModule.title"  class="form-control input-sm" required>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Path</span>
+                        <input type="text"  ng-model="chmsModule.path"  class="form-control input-sm" required>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Icon</span>
+                        <select  ng-model="chmsModule.moduleIconClass" class="form-control input-sm" ng-options="icon for icon in menuIcons">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Position</span>
+                        <input type="number" ng-model="chmsModule.position"  min="0" class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Description</span>
+                        <input type="text" id="description" ng-model="chmsModule.description" name="description" class="form-control input-sm">
+                    </div>
+                </div>
+                 <div class="col-md-12">
+                     <div class="col-md-12 text-center jd-border-top">
+                         <a  class="btn btn-warning" href="/setup/modules">Cancel</a>&nbsp;
+                         <button type="submit" class="btn btn-success" >
+                             <span ng-if="crudProcessing" loading loading-message="{{crudMessage}}"></span>
+                             <span ng-if="!crudProcessing">{{button}}</span>
+                         </button>&nbsp;
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</form>

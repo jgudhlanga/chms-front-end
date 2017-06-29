@@ -1,0 +1,79 @@
+
+/* Box 2 */
+.jd-box-1{
+  @include jdBox(lighten($jd-color-a, 100%), 1px, 1px, 3px, 1px);
+  background-color: $jd-transparent-color;
+  padding: 4px !important;
+  .title{
+    color: darken($jd-color-l, 10%); font-weight: bold; font-size: 13px;
+  }
+  .text{
+    color: lighten($jd-color-b, 35%); font-size: 13px;
+  }
+  .profile-pic-min{
+    width: 45px;
+  }
+  &:hover{
+    background-color: $jd-color-a;
+    @include jdTransition();
+    .text, .title{
+      color: $jd-color-e !important;
+    }
+  }
+}
+/* Box Mini */
+.jd-mini-box{
+ @include jdBox(lighten($jd-color-b, 100%), 1px, 1px, 3px, 1px);
+ background-color: $jd-transparent-color;
+  padding: 4px !important;
+  a, .title{
+    color: darken($jd-color-l, 10%); font-weight: bold; font-size: 12px;
+  }
+  .text{
+    color: lighten($jd-color-b, 35%); font-size: 11px;
+  }
+  .profile-pic-min{
+    width: 40px;
+  }
+}
+
+.jd-padding-0{
+  margin-left:0 !important; padding:0 !important;
+}
+.jd-padding-1{
+  margin-left:0 !important; padding:1px !important;
+}
+
+/* box count*/
+%commonBoxCount{
+  display: inline; float:left; padding:18px  5px; margin:0 !important; text-align: center;
+   height: 60px;
+}
+.box-count{
+  width: 100%; padding: 0;
+  //border: 1px solid $jd-color-a;
+  overflow: hidden;
+  @include jdRadius(5px, 5px, 5px, 5px);
+  a{
+    color: lighten($jd-color-a, 100%);
+  }
+  .count{
+    //@include jdRadius(3px, 0, 0, 3px);
+    @extend %commonBoxCount; width: 30%;
+  }
+  .title{
+    //@include jdRadius(0, 3px, 3px, 0);
+    @extend %commonBoxCount; width: 70%;
+  }
+}
+.box-tile{
+  div{
+    padding: 5px !important;
+  }
+  .header{
+    @include jdRadius(3px, 3px, 0, 0); font-weight: bold; font-size: 12px;
+  }
+  .content{
+    @include jdRadius(0, 0, 3px, 3px);
+  }
+}

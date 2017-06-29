@@ -1,0 +1,48 @@
+<script type="text/ng-template" id="add-edit-province.html">
+    <form method="post" role="form" ng-submit="saveProvince()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h4 class="modal-title text-left">{{provinceCrudTitle}}</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Province successfully created, add another below"></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='name' class='col-md-3'>Name<i class="fa fa-asterisk jd-required"></i></label>
+                    <div class="col-md-9">
+                        <input type="text" id="name" required class="form-control input-sm" ng-model="province.name">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='shortName' class='col-md-3'>Short Name</label>
+                    <div class="col-md-9">
+                        <input type="text" id="shortName" class="form-control input-sm" ng-model="province.shortName">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='description' class='col-md-3'>Description</i></label>
+                    <div class="col-md-9">
+                        <textarea rows="2" cols="80" id="description" class="form-control input-sm" ng-model="province.description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left""></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">{{provinceCrudButton}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

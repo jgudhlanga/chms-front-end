@@ -1,0 +1,46 @@
+.jd-main-content{
+ overflow: hidden;
+  min-height: $jd-main-section-height; padding: 80px 20px 20px 20px ;
+  border-left: 1px solid lighten($jd-color-b, 80%);
+    width: 95%;
+}
+
+%commonProp{
+    border: 1px solid lighten($jd-color-b, 80%); padding: 15px 0;
+    display: table;
+}
+.jd-border-container{
+  @include jdRadius(2px, 2px, 2px, 2px);
+  @extend %commonProp;
+  margin-top: 2px;  width: 100% !important;
+  min-height:440px;
+  overflow: hidden;
+  @-moz-document url-prefix(){
+    min-height: 440px;
+  }
+}
+  .jd-border-container-min{
+    @include jdRadius(2px, 2x, 2px, 2px);
+    @extend %commonProp;
+    background-color: $jd-transparent-color;
+    margin: 7px auto; width: 60% !important;
+    .header{
+        padding: 0 10px;
+        color:lighten($jd-color-b,35%); font-weight: bold; font-size: 20px;
+    }
+}
+.jd-login{
+      @include jdRadius();
+      //border: 1px solid $jd-color-blue;
+      padding: 30px 0;
+      display: table;
+      background-color: $jd-transparent-color;
+      margin: 120px auto; width: 35% !important;
+      .header{
+          padding: 0 10px;
+          color:#0d47a1; font-weight: bold; font-size: 16px;
+      }
+      .text{
+          color:#0d47a1 !important;
+      }
+ }

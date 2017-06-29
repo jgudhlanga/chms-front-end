@@ -1,0 +1,59 @@
+<div page-header page-title="{{chmsModule.title}} Module Pages" links="true"
+    link-1="true" link-url-1="/setup/modules" link-class-1="btn btn-default btn-xs" link-icon-1="fa fa-chevron-left" link-title-1="Back"
+    link-2="true" link-url-2="page/add/{{chmsModule.id}}" link-class-2="btn btn-primary btn-xs" link-icon-2="fa fa-plus-circle" link-title-2="New Page">
+</div>
+<!--Message -->
+<div ng-if="message" message message-class="alert alert-info" alert="{{message}}"></div>
+<!--loading-->
+<div ng-if="loadingModule" loading ></div>
+
+<div class="row" ng-if="!loadingModule">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div class="table-responsive">
+                <div ng-if="!chmsModule.pages.data.length > 0" message message-class="alert alert-warning" alert="No pages found"></div>
+                <table class="table table-striped" ng-if="chmsModule.pages.data.length > 0">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th><th>Title</th>
+                        <th>Path</th> <th>Icon</th><th>Order</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="page in chmsModule.pages.data | orderObjectBy: 'position'">
+                        <td>
+                            <a href="/page/{{page.module_id}}/{{page.id}}"><i class="fa fa-pencil text-success"></i></a>
+                        </td>
+                        <td>{{page.name}}</td><td>{{page.title}}</td>
+                        <td>{{page.path}}</td>
+                        <td><i class="{{page.page_icon_class}}"></i></td>
+                        <td>
+                            <button class="btn btn-xs btn-primary" ng-click="orderPage(page.id, 'up')">
+                                <i class="fa fa-arrow-circle-up"></i>
+                            </button>
+                            <button class="btn btn-xs btn-info" ng-click="orderPage(page.id, 'down')">
+                                <i class="fa fa-arrow-circle-down"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-xs btn-success" ng-show="!page.is_active" ng-click="activatePage(page.id, 1)">
+                                <i class="fa fa-toggle-on"></i> Activate
+                            </button>
+                            <button class="btn btn-xs btn-warning" ng-show="page.is_active" ng-click="activatePage(page.id, 0)">
+                                <i class="fa fa-toggle-on"></i> Deactivate
+                            </button>
+                        </td>
+                        <td class="text-right">
+                            <button class="btn btn-danger btn-xs" ng-click="deletePage(page.module_id, page.id)">
+                                <i class="fa fa-trash-o"></i>Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

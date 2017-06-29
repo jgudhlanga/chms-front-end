@@ -1,0 +1,12 @@
+<ul class="nav nav-sidebar" ng-if="isLoggedIn">
+    <li ng-repeat="module in chmsModules | orderObjectBy: 'position' ">
+        <a  href="/{{module.path}}" title="{{module.title}}">
+            <i class="{{module.moduleIconClass}} fa-2x jd-menu-icon"></i>
+        </a>
+    </li>
+    <li class="jd-nav-li">
+        <a href="/setup" title="Setup">
+            <i class="fa fa-wrench fa-2x jd-menu-icon"></i>
+        </a>
+    </li>
+</ul>

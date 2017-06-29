@@ -1,0 +1,67 @@
+<script type="text/ng-template" id="chms-roles.html">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h4 class="modal-title text-left">CHMS Roles</h4>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <div class="col-md-12">
+                        <table class="table table-hover table-stripped">
+                            <thead>
+                                <tr>
+                                    <th width="20">#</th><th>Role</th><th>Description</th>
+                                    <th width="30"></th>
+                                    <th width="80"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-if="roles.length > 0" ng-repeat="r in roles">
+                                    <td>{{r.id}}</td><td>{{r.name}}</td><td>{{r.description}}</td>
+                                    <td class="text-right"><a ng-click="editRole(r.id)">
+                                            <i class="fa fa-pencil fa-2x text-success"></i>
+                                        </a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a ng-click="deleteRole(r.id)">
+                                            <i class="fa fa-trash fa-2x text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr  ng-if="!roles.length > 0">
+                                    <td colspan="5"><div class="text-danger text-center">No roles found</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <form method="post" ng-submit="saveRole()">
+                        <table class="table table-hover table-responsive">
+                            <tr  ng-if="message">
+                                <td colspan="3">
+                                    <div message message-class="alert alert-{{messageClass}}" alert="{{message}}"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control input-sm" ng-model="role.name"></td>
+                                <td>
+                                    <input type="text" class="form-control input-sm jd-full-width" ng-model="role.description">
+                                </td>
+                                <td class="text-right" width="30">
+                                    <button class="btn btn-sm btn-success">
+                                        <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                                        <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                                        <span ng-if="!saving">{{buttonValue}}</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left""></i>&nbsp;Exit
+                </button>
+            </div>
+        </div>
+</script>

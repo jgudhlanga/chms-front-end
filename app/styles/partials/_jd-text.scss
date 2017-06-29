@@ -1,0 +1,89 @@
+/*text */
+/* box bg */
+.text-a{
+  color: $jd-color-a !important;
+}
+.text-b{
+  color: $jd-color-b !important;
+}
+.text-faint{
+  color: lighten($jd-color-b, 50%) !important;
+}
+.text-c{
+  color: $jd-color-c !important;
+}
+.text-f{
+  color: $jd-color-f !important;
+}
+.text-g{
+  color: $jd-color-g !important;
+}
+.text-h{
+  color: $jd-color-h !important;
+}
+.text-i{
+  color: darken($jd-color-i, 20%) !important;
+}
+.text-j{
+  color: darken($jd-color-j, 20%) !important;
+}
+.text-k{
+  color: darken($jd-color-k, 20%) !important;
+}
+.text-l{
+  color: $jd-color-l !important;
+}
+.text-w{
+  color: lighten($jd-color-a, 100%) !important;
+}
+
+.text-red{
+    color: #FF1744 !important;
+}
+.text-green{
+    color: #1B5E20 !important;
+}
+.text-orange{
+    color: #EF6C00 !important;
+}
+.text-purple{
+    color: #AA00FF !important;
+}
+.text-blue{
+    color: #0d47a1 !important;
+}
+.jd-page-header{
+  color: lighten($jd-color-b, 50%); font-weight: bold; font-size: 20px; margin-bottom: 4px;
+  text-transform: capitalize;
+  overflow: hidden;
+  padding: 5px 0;
+  .jd-page-right{
+    float: right; display: inline;
+  }
+}
+.jd-caption-header{
+  @include jdRadius();
+  background-color: $jd-color-f; padding: 5px; color: lighten($jd-color-f, 100%); font-size: 18px;
+}
+.jd-caption{
+  font-size: 14px; font-weight: bold;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif !important;
+}
+.jd-title{
+   color: lighten($jd-color-b, 50%); font-size: 14px;
+}
+.jd-text{
+  color: lighten($jd-color-b, 50%); font-size: 14px;;
+}
+.jd-name-tag{
+  color: #0d47a1; font-size: 15px; font-weight: bold; text-space: 2px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+  margin: 5px !important;
+  margin-bottom: 10px !important;
+}

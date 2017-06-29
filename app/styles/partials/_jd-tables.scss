@@ -1,0 +1,11 @@
+.table{
+    border: 1px solid lighten($jd-color-blue, 50%) !important;
+    thead > tr > th{
+        border-bottom: 1px solid lighten($jd-color-blue, 50%) !important;
+        background-color: $jd-color-blue;
+        color: lighten($jd-color-blue, 100%);
+    }
+    tr > td{
+        border-top: 1px solid lighten($jd-color-blue, 50%) !important;
+    }
+}

@@ -1,0 +1,10 @@
+.jd-footer{
+    //border-left: 2px solid $jd-color-a; border-right: 2px solid $jd-color-a;
+    border-top: 2px solid $jd-color-a;
+  /*-moz-border-image:  -moz-linear-gradient(left, $jd-color-a 0%, lighten($jd-color-d, 20%) 100%);
+  -webkit-border-image:  -webkit-linear-gradient(left, $jd-color-a 0%, lighten($jd-color-d, 20%) 100%);
+  border-image:  linear-gradient(to right, $jd-color-a 0%, lighten($jd-color-d, 20%) 100%);
+  border-image-slice: 1;*/
+  padding: 10px 20px;
+  color: darken($jd-color-a, 10%); font-weight: bold;
+}

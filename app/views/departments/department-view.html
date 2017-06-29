@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">Department View</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/departments"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+
+<!--Loading-->
+<div ng-if="processing" loading ></div>
+
+<div class="row" ng-if="!processing">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div ng-if="message" message message-class="alert alert-{{messageClass}}" alert="{{message}}"></div>
+            <div ng-if="busyWait" loading loading-message="busy wait..." class="text-w"></div>
+            <div class="col-md-12 text-right">
+                <a ng-click="open()" title="Edit Department">
+                    <i class="fa fa-pencil fa-2x"></i>
+                </a>&nbsp;
+                <a ng-if="chmsDepartment.isActive" title="Deactivate" ng-click="activateDepartment(chmsDepartment.id, 0)">
+                    <i class="fa fa-toggle-off fa-2x text-orange"></i>
+                </a>
+                <a ng-if="!chmsDepartment.isActive" title="Activate" ng-click="activateDepartment(chmsDepartment.id, 1)">
+                    <i class="fa fa-toggle-on fa-2x text-green"></i>
+                </a>
+                &nbsp;<a ng-click="deleteDepartment(chmsDepartment.id)" title="Delete">
+                    <i class="fa fa-trash-o fa-2x text-red"></i>
+                </a>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <i class="fa fa-info-circle"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span><br/>
+                    <span class="jd-title">Name:&nbsp;&nbsp;</span>
+                    <span class="jd-text text-b">{{chmsDepartment.name}}</span><br/>
+                    <span class="jd-title">Date Formed:&nbsp;&nbsp;</span>
+                    <span class="jd-text text-b">{{chmsDepartment.dateFormed}}</span><br/>
+                    <span class="jd-title">Head Of Department:&nbsp;&nbsp;</span><span class="jd-text text-b">{{chmsDepartment.hodNames}}</span><br/>
+                    <span class="jd-title">Total Members:&nbsp;&nbsp;</span><span class="jd-text text-b">{{chmsDepartment.departmentMembers.data.length}}</span><br/>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-wrench"></i>&nbsp;&nbsp;<span class="jd-caption">Duties</span>
+                    <address>
+                        {{chmsDepartment.duties}}
+                    </address>
+                </div>
+            </div>
+            <div class="row col-md-12 jd-margin-top">
+                <div class="col-md-6">
+                    <i class="fa fa-money"></i>&nbsp;&nbsp;<span class="jd-caption">Budget</span>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;<span class="jd-caption">Statistics</span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row jd-margin-top">
+                    <div class="col-md-6">
+                        <div class="jd-page-header">Department Members</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                            <a data-toggle="modal" title="Add Department Member" data-target="#department-members"><i class="fa fa-plus-circle fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-12" ng-if="chmsDepartment.departmentMembers.data.length > 0">
+                        <div class="col-md-2 col-xs-12 jd-padding-1" ng-repeat="m in chmsDepartment.departmentMembers.data">
+                            <div member-min-tile member="m" remove-member="removeDepartmentMember"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-if="!chmsDepartment.departmentMembers.data.length > 0">
+                        <div class="text-center text-danger">No department members found !</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Add edit department-->
+<div ng-include="'views/departments/add-edit-department.html'"></div>
+<!-- department members modal -->
+<div ng-include="'views/departments/department-members.html'"></div>

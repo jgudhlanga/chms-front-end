@@ -1,0 +1,31 @@
+/* Project Colors */
+$jd-color-a: #171966;
+$jd-color-b: #000000;
+$jd-color-c: #df8d00;
+$jd-color-d: #ecf0f5;
+$jd-color-e: lighten($jd-color-a, 100%);
+$jd-color-f: #35aeae;
+$jd-color-g: #7c3297;
+$jd-color-h: #1d661a;
+$jd-color-i: #ecec00;
+$jd-color-j: #ff0000;
+$jd-color-k: #a1bfd3;
+$jd-color-l: #337ab7 !default;
+$jd-color-m: #1BD608; //green
+$jd-color-blue: #0d47a1;//blue
+$jd-transparent-color: rgba(55, 106, 245, 0.14);
+/* Height and Width */
+$jd-header-height: 70px;
+$jd-header-line-height: 60px;
+$jd-left-panel-width: 5%;
+$jd-banner-width: 20%;
+$jd-main-section-height: 520px;
+
+/* Padding and Margin */
+$jd-left-panel-padding : 10px;
+
+/* MODALS CUSTOM */
+$jd-modal-lg: 95%;
+$jd-modal-md: 70%;
+$jd-modal-sm: 50%;
+$jd-modal-xs: 40%;

@@ -1,0 +1,31 @@
+<div  class="modal fade" id="group-members" tabindex="-1" role="dialog" aria-labelledby="group-members Label" aria-hidden="true">
+    <div class="modal-dialog jd-modal-md">
+        <form method="post" role="form" ng-submit="saveGroupMembers()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+                    <h4 class="modal-title text-left">Add Group Members</h4>
+                </div>
+                <div class="modal-body">
+                    <div ng-if="!noneGroupMembers.length > 0" message message-class="alert alert-warning" alert="No membership found"></div>
+                    <div ng-if="modalMessage" message message-class="alert alert-info" alert="{{modalMessage}}"></div>
+                    <div ng-if="modalError" message message-class="alert alert-danger" alert="{{modalError}}"></div>
+                    <div class="row" ng-if="noneGroupMembers.length>0">
+                        <div class="col-md-4" ng-repeat="m in noneGroupMembers">
+                            <input type="checkbox" name="membership[]" ng-model="groupMembers.membership[m.id]">&nbsp;{{m.firstName}}&nbsp;{{m.surname}}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-warning" type="button" data-dismiss="modal"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Exit</button>
+                        <button class="btn btn-success" type="submit" >
+                            <span ng-if="savingGroupMembers" loading loading-message="saving..."></span>
+                            <span ng-if="!savingGroupMembers"><i class="fa fa-save"></i>&nbsp;Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

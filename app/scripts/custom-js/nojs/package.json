@@ -1,0 +1,85 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "nojs",
+        "scope": null,
+        "escapedName": "nojs",
+        "name": "nojs",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "d:\\server\\chms"
+    ]
+  ],
+  "_from": "nojs@latest",
+  "_id": "nojs@0.0.5",
+  "_inCache": true,
+  "_location": "/nojs",
+  "_nodeVersion": "5.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/nojs-0.0.5.tgz_1488832443374_0.8490103299263865"
+  },
+  "_npmUser": {
+    "name": "ifedapoolarewaju",
+    "email": "ifedapoolarewaju@gmail.com"
+  },
+  "_npmVersion": "3.8.7",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "nojs",
+    "scope": null,
+    "escapedName": "nojs",
+    "name": "nojs",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/nojs/-/nojs-0.0.5.tgz",
+  "_shasum": "413213ae67afc9619e1f9434fd6bdc1533070bd4",
+  "_shrinkwrap": null,
+  "_spec": "nojs",
+  "_where": "d:\\server\\chms",
+  "author": {
+    "name": "Ifedapo .A. Olarewaju"
+  },
+  "bugs": {
+    "url": "https://github.com/ifedapoolarewaju/nojs/issues"
+  },
+  "dependencies": {},
+  "description": "Library that helps minimize js you have to write",
+  "devDependencies": {
+    "uglify-js": "^2.7.5"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "413213ae67afc9619e1f9434fd6bdc1533070bd4",
+    "tarball": "https://registry.npmjs.org/nojs/-/nojs-0.0.5.tgz"
+  },
+  "gitHead": "f417c16dc22e8e8bea9ff1523693574d805d6544",
+  "homepage": "https://github.com/ifedapoolarewaju/nojs#readme",
+  "license": "MIT",
+  "main": "no.js",
+  "maintainers": [
+    {
+      "name": "ifedapoolarewaju",
+      "email": "ifedapoolarewaju@gmail.com"
+    }
+  ],
+  "name": "nojs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifedapoolarewaju/nojs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.5"
+}

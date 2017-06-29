@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">Members List</div>
+    </div>
+    <div class="col-md-6 text-right">
+         <a href="/members"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+         <a href="/members/dashboard"><i class="fa fa-bar-chart fa-2x"></i></a>
+         <a ng-click="open()"><i class="fa fa-plus-circle fa-2x"></i></a>
+    </div>
+</div>
+<!-- LOADING -->
+<div ng-if="loadingMembers" loading ></div>
+<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize ui-grid-exporter ui-grid-move-columns class="grid" ng-style="getTableHeight()"></div>
+
+<!--ADD MEMBER MODAL-->
+<div ng-include="'views/members/add-edit-member.html'"></div>

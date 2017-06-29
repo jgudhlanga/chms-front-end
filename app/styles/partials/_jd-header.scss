@@ -1,0 +1,18 @@
+.jd-user-panel{
+    @include jdGradient();
+    overflow: hidden;
+    width: 100%;
+    color: darken($jd-color-e, 20%);
+    a{
+        line-height: 50px;
+        .jd-app-brand{
+            color: lighten($jd-color-a, 45%) !important; font-size: 30px;
+            font-weight: bold;
+        }
+        .jd-brand-inverse{
+            color: $jd-color-m !important; font-size: 30px;
+            font-weight: bold;
+        }
+        @extend %textDecorationNone;
+    }
+ }

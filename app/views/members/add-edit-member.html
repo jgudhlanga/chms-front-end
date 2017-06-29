@@ -1,0 +1,175 @@
+<script type="text/ng-template" id="add-edit-member.html">
+    <form method="post" role="form" ng-submit="postMember()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h4>{{memberCrudTitle}}</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Member successfully created, add another below"><span>&nbsp;<a ng-click="view()" >- or View {{newMember.name}} Profile</a></span></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-5 text-info">
+                <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="jd-caption">Personal Info</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Gender</label>
+                        <div class="col-md-8">
+                            <select ng-model="chmsMember.gender" class="form-control input-sm" ng-options="g for g in genderOptions"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Title</label>
+                        <div class="col-md-8">
+                            <select ng-model="chmsMember.title" class="form-control input-sm" ng-options="t for t in titleOptions"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">FirstName<i class="fa fa-asterisk jd-required"></i></label>
+                        <div class="col-md-8">
+                            <input type="text" required class="form-control input-sm" ng-model="chmsMember.firstName">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Surname<i class="fa fa-asterisk jd-required"></i></label>
+                        <div class="col-md-8">
+                            <input type="text" required class="form-control input-sm"  ng-model="chmsMember.surname">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <datepicker date-format="d-M-yyyy" selector="form-control" button-prev="<i class='fa fa-arrow-circle-o-left text-white'></i>" button-next="<i class='fa fa-arrow-circle-o-right text-white'></i>">
+                        <div class="form-group">
+                            <label class="col-md-4">D.O.B
+                                <i class="fa fa-lg fa-calendar"></i>
+                            </label>
+                            <div class="col-md-8">
+                                <input ng-model="chmsMember.birthDate" type="text"  class="form-control input-sm"/>
+                            </div>
+                        </div>
+                    </datepicker>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Marital Status</label>
+                        <div class="col-md-8">
+                            <select ng-model="chmsMember.maritalStatus" class="form-control input-sm" ng-options="s for s in maritalStatusOptions"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5 text-info">
+                <i class="fa fa-address-book-o"></i>&nbsp;&nbsp;<span class="jd-caption">Contact Info</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Email</label>
+                        <div class="col-md-8">
+                            <input type="email" class="form-control input-sm" ng-model="chmsMember.email">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Mobile<i class="fa fa-asterisk jd-required"></i></label>
+                        <div class="col-md-8">
+                            <input type="text" required class="form-control input-sm" ng-model="chmsMember.mobileNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Home No.</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm"  ng-model="chmsMember.homeNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Work No.</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm"  ng-model="chmsMember.workNumber">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5 text-info">
+                <i class="fa fa-home"></i>&nbsp;&nbsp;<span class="jd-caption">Address</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">H. Address</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm" ng-model="chmsMember.residentialAddress">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Surbub</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm" ng-model="chmsMember.surbub">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">City</label>
+                        <div class="col-md-8">
+                            <select id="city"  ng-model="chmsMember.city" class="form-control input-sm">
+                                <option ng-repeat="c in cities" value="{{c.name}}">{{c.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">Province</label>
+                        <div class="col-md-8">
+                            <select id="province"  ng-model="chmsMember.province" class="form-control input-sm">
+                                <option ng-repeat="p in provinces" value="{{p.name}}">{{p.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">P. Address</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm" ng-model="chmsMember.postalAddress">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-2">
+                    <div class="form-group">
+                        <label class="col-md-4">P. Code</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control input-sm" ng-model="chmsMember.postalCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">{{memberCrudButton}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

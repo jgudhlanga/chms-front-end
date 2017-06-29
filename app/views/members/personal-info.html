@@ -1,0 +1,68 @@
+<div class="col-md-6 text-primary">
+    <div class="col-md-12 jd-margin-top">
+        <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span>
+    </div>
+    <div class=" row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Gender:</div><div class="col-md-8 jd-title text-b">{{chmsMember.gender}}</div>
+    </div>
+    <div class=" row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Middle Name:</div> <div class="col-md-8 jd-title text-b">{{chmsMember.middleName}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Marital Status:</div> <div class="col-md-8 jd-title text-b">{{chmsMember.maritalStatus}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Birth Date:</div><div class="col-md-8 jd-title text-b">{{chmsMember.birthDate}}</div>
+    </div>
+</div>
+<div class="col-md-6 text-primary">
+    <div class="col-md-12 jd-margin-top">
+        <i class="fa fa-address-book-o"></i>&nbsp;&nbsp;<span class="jd-caption">Contact Details</span>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Email Address:</div><div class="col-md-8 jd-title text-b">{{chmsMember.email}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Mobile Number:</div><div class="col-md-8 jd-title text-b">{{chmsMember.mobileNumber}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Home Number:</div><div class="col-md-8 jd-title text-b">{{chmsMember.homeNumber}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Work Number:</div><div class="col-md-8 jd-title text-b">{{chmsMember.workNumber}}</div>
+    </div>
+</div>
+<div class="col-md-6 text-primary">
+    <div class="col-md-12 jd-margin-top">
+        <i class="fa fa-home"></i>&nbsp;&nbsp;<span class="jd-caption">Address</span>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Res Address:</div><div class="col-md-8 jd-title text-b">{{chmsMember.residentialAddress}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Surbub:</div><div class="col-md-8 jd-title text-b">{{chmsMember.surbub}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">City:</div><div class="col-md-8 jd-title text-b">{{chmsMember.city}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Province:</div><div class="col-md-8 jd-title text-b">{{chmsMember.province}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Postal Address:</div><div class="col-md-8 jd-title text-b">{{chmsMember.postalAddress}}</div>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4 jd-title text-faint">Postal Code:</div><div class="col-md-8 jd-title text-b"> {{chmsMember.postalCode}}</div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="col-md-12 jd-border-top-b text-right">
+        <button type="button" class="btn btn-primary" ng-click="open()">
+            <i class="fa fa-edit">&nbsp;</i>Edit
+        </button>
+    </div>
+</div>
+
+<!--EDIT MODAL-->
+<div ng-include="'views/members/add-edit-member.html'"></div>

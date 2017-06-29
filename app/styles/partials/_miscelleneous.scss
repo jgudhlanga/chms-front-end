@@ -1,0 +1,47 @@
+.jd-list-down:after{
+  @extend %doubleArrow;
+  @include jdRotate();
+}
+
+.jd-list-up:after{
+  @extend %doubleArrow;
+  @include jdRotate(-90);
+}
+
+.jd-border-top{
+  border-top: 1px solid lighten($jd-color-a, 100%); padding-top: 5px; margin-top: 5px;
+}
+.jd-border-top-b{
+  border-top: 1px solid lighten($jd-color-b, 80%); padding-top: 5px; margin-top: 5px;
+}
+
+.jd-margin-top{
+  margin-top: 20px;
+}
+
+/**/
+.jd-hide{
+  display: none;
+}
+.jd-add-on{
+  min-width: 130px !important; text-align: left !important;
+}
+.jd-div-margin-5{
+  margin: 5px 0;
+}
+.jd-div-margin-2{
+  margin: 2px 0;
+}
+.jd-full-width{
+    width: 100% !important;
+}
+.profile-pic{
+  height: 180px; width: 180px;
+}
+blockquote{
+  border-left: 5px solid $jd-color-l !important;
+}
+.jd-tab-pane{
+  background-color: lighten($jd-color-l, 99%) !important; min-height: 180px;
+  border-left: 1px solid $nav-tabs-border-color; padding: 5px;
+}

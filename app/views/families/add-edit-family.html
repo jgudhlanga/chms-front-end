@@ -1,0 +1,58 @@
+<script type="text/ng-template" id="add-edit-family.html">
+    <form method="post" role="form" ng-submit="saveFamily()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h3 class="modal-title text-left">{{familyCrudTitle}}</h3>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Family successfully created, add another below"><span>&nbsp;<a ng-click="view()" >- or View {{newFamily.name}}</a></span></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='name' class='col-md-3'>Name</label>
+                    <div class="col-md-9">
+                        <input type="text" id="name" required class="form-control input-sm" ng-model="chmsFamily.name"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='location' class='col-md-3'>Address</label>
+                    <div class="col-md-9">
+                        <textarea  rows="2" id="location" class="form-control input-sm" ng-model="chmsFamily.location"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='description' class='col-md-3'>Description</label>
+                    <div class="col-md-9">
+                        <textarea  rows="2" id="description" class="form-control input-sm" ng-model="chmsFamily.description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='headOfFamilyId' class='col-md-3'>Family Head</label>
+                    <div class="col-md-9">
+                        <select id="headOfFamilyId"  ng-model="chmsFamily.headOfFamilyId" class="form-control input-sm">
+                            <option ng-repeat="m in chmsMembership" value="{{m.id}}">{{m.firstName}}&nbsp;{{m.surname}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">{{familyCrudButton}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

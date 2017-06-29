@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts\services\settingsService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">scripts/services/</a> settingsService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.18% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>14/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.04% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+(function(){
+&nbsp;
+    var SettingsService = function($http)
+    {
+        //1 get the all modules
+        var listModules = function(){
+            return $http.get("http://www.jdev-systems/api/v1/modules").then(
+<span class="fstat-no" title="function not covered" >                function(response)</span>
+                {
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                },
+<span class="fstat-no" title="function not covered" >                function(errorMsg){</span>
+<span class="cstat-no" title="statement not covered" >                    return errorMsg;</span>
+                }
+            );
+        };
+&nbsp;
+        /*get a module */
+        var getModule = <span class="fstat-no" title="function not covered" >function(moduleId){</span>
+<span class="cstat-no" title="statement not covered" >            return $http.get('http://www.jdev-systems/api/v1/modules/'+moduleId+'').then(</span>
+<span class="fstat-no" title="function not covered" >                function(response)</span>
+                {
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                },
+<span class="fstat-no" title="function not covered" >                function(errorMsg){</span>
+<span class="cstat-no" title="statement not covered" >                    return errorMsg;</span>
+                }
+            );
+        };
+&nbsp;
+        /* save module */
+        var config = {
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': ''
+            }
+        }
+        var saveModule = <span class="fstat-no" title="function not covered" >function(formData)</span>
+        {
+<span class="cstat-no" title="statement not covered" >            return $http.post('http://www.jdev-systems/api/v1/modules',formData, config)</span>
+               .then(<span class="fstat-no" title="function not covered" >function(response){</span>
+<span class="cstat-no" title="statement not covered" >                return response.data;</span>
+            },
+<span class="fstat-no" title="function not covered" >             function(reason){</span>
+<span class="cstat-no" title="statement not covered" >                 return reason;</span>
+            });
+        };
+        /* update module */
+        var updateModule = <span class="fstat-no" title="function not covered" >function(formData)</span>
+        {
+<span class="cstat-no" title="statement not covered" >            return $http.put('http://www.jdev-systems/api/v1/modules/'+formData.id, formData, config)</span>
+                .then(<span class="fstat-no" title="function not covered" >function(response){</span>
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                },
+<span class="fstat-no" title="function not covered" >                 function(reason){</span>
+<span class="cstat-no" title="statement not covered" >                     return reason;</span>
+                });
+        };
+        /* activate - deactivate  module */
+        var activateModule = <span class="fstat-no" title="function not covered" >function(moduleId, active)</span>
+        {
+<span class="cstat-no" title="statement not covered" >            return $http.patch('http://www.jdev-systems/api/v1/modules/'+moduleId+'/'+active, config)</span>
+                .then(<span class="fstat-no" title="function not covered" >function(response){</span>
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                },
+<span class="fstat-no" title="function not covered" >                 function(reason){</span>
+<span class="cstat-no" title="statement not covered" >                     return reason;</span>
+            });
+        };
+&nbsp;
+        /* activate - deactivate  module */
+        var orderModule = <span class="fstat-no" title="function not covered" >function(moduleId, direction)</span>
+        {
+<span class="cstat-no" title="statement not covered" >            return $http.patch('http://www.jdev-systems/api/v1/modules/order/'+moduleId+'/'+direction, config)</span>
+                .then(<span class="fstat-no" title="function not covered" >function(response){</span>
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                },
+<span class="fstat-no" title="function not covered" >                 function(reason){</span>
+<span class="cstat-no" title="statement not covered" >                     return reason;</span>
+            });
+        };
+&nbsp;
+        /* delete module */
+        var deleteModule = <span class="fstat-no" title="function not covered" >function(module)</span>
+        {
+<span class="cstat-no" title="statement not covered" >            return $http.delete('http://www.jdev-systems/api/v1/modules/'+module, config)</span>
+                .then(<span class="fstat-no" title="function not covered" >function(response){</span>
+<span class="cstat-no" title="statement not covered" >                return response.data;</span>
+            },
+<span class="fstat-no" title="function not covered" >             function(reason){</span>
+<span class="cstat-no" title="statement not covered" >                 return reason;</span>
+            });
+        };
+        //menu icons object
+        var jdevMenuIcons = {
+            'fa fa-gears': 'fa fa-gears', 'fa fa-database': 'fa fa-database', 'fa fa-calendar': 'fa fa-calendar',
+            'fa fa-dashboard': 'fa fa-dashboard','fa fa-question-circle': 'fa fa-question-circle', 'fa fa-home': 'fa fa-home',
+            'fa fa-group': 'fa fa-group', 'fa fa-folder': 'fa fa-folder', 'fa fa-bar-chart': 'fa fa-bar-chart',
+            'fa fa-wrench': 'fa fa-wrench'
+        };
+&nbsp;
+        //Return the object of action in this service
+        return {
+            jdevMenuIcons: jdevMenuIcons,
+            listModules: listModules,
+            getModule: getModule,
+            updateModule: updateModule,
+            saveModule: saveModule,
+            activateModule: activateModule,
+            orderModule: orderModule,
+            deleteModule: deleteModule
+        };
+    };
+&nbsp;
+    /* Register the SettingsService with the module */
+&nbsp;
+    angular.module('jdevAngularApp').factory('SettingsService',SettingsService);
+}());
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2017 17:59:52 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

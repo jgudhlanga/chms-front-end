@@ -1,0 +1,114 @@
+<script type="text/ng-template" id="edit-believer-details.html">
+    <form method="post" role="form" ng-submit="saveBelieverDetails()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h4 class="modal-title text-left">Believer's Details</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Believer's Details successfully Saved"></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-2">
+                <datepicker date-format="d-MMMM-yyyy" selector="form-control" button-prev="<i class='fa fa-arrow-circle-o-left text-w'></i>" button-next="<i class='fa fa-arrow-circle-o-right text-w'></i>">
+                    <div class="form-group">
+                        <label class="col-md-5">Received Jesus
+                            <i class="fa fa-lg fa-calendar"></i>
+                        </label>
+                        <div class="col-md-7">
+                            <input ng-model="believer.receivedJesusDate" type="text"  class="form-control input-sm"/>
+                        </div>
+                    </div>
+                </datepicker>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='receivedJesusArea' class='col-md-5'>Where Jesus Received?</label>
+                    <div class="col-md-7">
+                        <input type="text" id="receivedJesusArea" class="form-control input-sm" ng-model="believer.receivedJesusArea">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='receivedJesusConveyor' class='col-md-5'>Who Led You?</label>
+                    <div class="col-md-7">
+                        <input type="text" id="receivedJesusConveyor" class="form-control input-sm" ng-model="believer.receivedJesusConveyor">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <datepicker date-format="d-M-yyyy" selector="form-control" button-prev="<i class='fa fa-arrow-circle-o-left text-w'></i>" button-next="<i class='fa fa-arrow-circle-o-right text-w'></i>">
+                    <div class="form-group">
+                        <label class="col-md-5">Water Baptism <i class="fa fa-lg fa-calendar"></i>
+                        </label>
+                        <div class="col-md-7">
+                            <input id="waterBaptismDate" ng-model="believer.waterBaptismDate" type="text"  class="form-control input-sm"/>
+                        </div>
+                    </div>
+                </datepicker>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='waterBaptismArea' class='col-md-5'>Where Water Baptized </i></label>
+                    <div class="col-md-7">
+                        <input type="text" id="waterBaptismArea" class="form-control input-sm" ng-model="believer.waterBaptismArea">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='waterBaptismConveyor' class='col-md-5'>Who Led You?</i></label>
+                    <div class="col-md-7">
+                        <input type="text" id="waterBaptismConveyor" class="form-control input-sm" ng-model="believer.waterBaptismConveyor">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <datepicker date-format="d-M-yyyy" selector="form-control" button-prev="<i class='fa fa-arrow-circle-o-left text-w'></i>" button-next="<i class='fa fa-arrow-circle-o-right text-w'></i>">
+                    <div class="form-group">
+                        <label class="col-md-5">Holly Spirit Baptism <i class="fa fa-lg fa-calendar"></i>
+                        </label>
+                        <div class="col-md-7">
+                            <input id="HolySpiritBaptismDate" ng-model="believer.HolySpiritBaptismDate" type="text"  class="form-control input-sm"/>
+                        </div>
+                    </div>
+                </datepicker>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='HolySpiritBaptismArea' class='col-md-5'>Where Holly Spirit Baptized?</i></label>
+                    <div class="col-md-7">
+                        <input type="text" id="HolySpiritBaptismArea" class="form-control input-sm" ng-model="believer.HolySpiritBaptismArea">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='HolySpiritBaptismConveyor' class='col-md-5'>Who Led You?</i></label>
+                    <div class="col-md-7">
+                        <input type="text" id="HolySpiritBaptismConveyor" class="form-control input-sm" ng-model="believer.HolySpiritBaptismConveyor">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-2">
+                <div class="form-group">
+                    <label for='description' class='col-md-5'>Description</i></label>
+                    <div class="col-md-7">
+                        <textarea name="description" rows="2" class="form-control input-sm">{{believer.description}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left""></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">Save</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

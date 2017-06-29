@@ -1,0 +1,58 @@
+<form class="form-horizontal" ng-submit="savePage()">
+
+    <div page-header page-title="{{pageTitle}}" ></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jd-border-container">
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Name</span>
+                        <input type="text" ng-model="page.name" class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Title</span>
+                        <input type="text" required ng-model="page.title"  class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Path</span>
+                        <input type="text"  required ng-model="page.path"  class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Icon</span>
+                        <select  ng-model="page.pageIconClass"  class="form-control input-sm" ng-options="icon for icon in menuIcons">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Position</span>
+                        <input type="number" ng-model="page.position" min="0" class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-6 jd-div-margin-5">
+                    <div class="input-group">
+                        <span class="input-group-addon jd-add-on">Description</span>
+                        <input type="text" ng-model="page.description" class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 text-center jd-border-top">
+                        <a  class="btn btn-warning" href="/modulepages/{{chmsModule.id}}">Cancel</a>&nbsp;
+                        <button type="submit" class="btn btn-success" >
+                            <span ng-if="savingPage" loading loading-message="{{savingMessage}}"></span>
+                            <span ng-if="!savingPage">{{pageButton}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

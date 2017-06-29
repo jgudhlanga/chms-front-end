@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">Member Profile View</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/members/members"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+<!--Loading-->
+<div ng-if="processing" loading ></div>
+<div ng-if="message" message message-class="alert alert-info" alert="{{message}}"></div>
+<div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+
+<div class="row" ng-if="!loadingProfile">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div ng-if="message" message message-class="alert alert-info" alert="{{message}}"></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="col-md-12">
+                <div class="col-md-2 jd-padding-1 text-center">
+                    <div class="text-right" style="margin: 0 !important; padding: 0 !important;">
+                        <img class="img-circle img-responsive profile-pic" ng-src="images/unknown.png"/>
+                    </div>
+                    <span class="jd-name-tag jd-margin-top">{{chmsMember.name}}</span>
+                    <div>
+                        <form  method="post">
+                            <div class="jd-margin-top">
+                                <input type="file" id="file1" name="file" multiple
+            ng-files="getTheFiles($files)" class="form-control input-sm" /><br/>
+                                <button type="button" class="btn btn-primary btn-xs" ng-click="uploadFiles()">
+                                    <i class="fa fa-picture-o">&nbsp;</i>Upload Prifile Picture
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a data-target="#personal" aria-controls="personal" role="tab" class="text-faint" data-toggle="tab">Info</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#membership" aria-controls="membership" role="tab" class="text-faint" data-toggle="tab">Membership</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#project" aria-controls="project" role="tab" class="text-faint" data-toggle="tab">Projects</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#skills" aria-controls="skills" role="tab" class="text-faint" data-toggle="tab">Skills</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#offering" aria-controls="offering" role="tab" class="text-faint" data-toggle="tab">Tithes & Offering</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#request" aria-controls="request" role="tab" class="text-faint" data-toggle="tab">Prayer Requests</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#volunteer" aria-controls="volunteer" role="tab" class="text-faint" data-toggle="tab">Volunteering</a>
+                            </li>
+                            <li role="presentation" >
+                                <a data-target="#gallery" aria-controls="gallery" role="tab" class="text-faint" data-toggle="tab">Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active jd-tab-pane" id="personal">
+                            <div class="row" ng-include="'views/members/personal-info.html'"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in jd-tab-pane" id="family">
+                            <div class="row" ng-include="views/members/family-info.html'"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in jd-tab-pane" id="membership">
+                            <div class="row" ng-include="'views/members/membership-info.html'"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in jd-tab-pane" id="skills">
+                            <div class="row" ng-include="'views/members/member-skills.html'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

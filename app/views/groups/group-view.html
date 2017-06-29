@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">{{chmsGroup.name}} Group View</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/groups"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+
+<!--Loading-->
+<div ng-if="processing" loading ></div>
+
+<div class="row" ng-if="!processing">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div ng-if="message" message message-class="alert alert-{{messageClass}}" alert="{{message}}"></div>
+            <div ng-if="busyWait" loading loading-message="busy wait..." class="text-w"></div>
+            <div class="col-md-12 text-right">
+                <a ng-click="open()" title="Edit Cell Group">
+                    <i class="fa fa-pencil fa-2x"></i>
+                </a>&nbsp;
+                <a ng-if="chmsGroup.isActive" title="Deactivate" ng-click="activateGroup(chmsGroup.id, 0)">
+                    <i class="fa fa-toggle-off fa-2x text-orange"></i>
+                </a>
+                <a ng-if="!chmsGroup.isActive" title="Activate" ng-click="activateGroup(chmsGroup.id, 1)">
+                    <i class="fa fa-toggle-on fa-2x text-green"></i>
+                </a>
+                &nbsp;<a ng-click="deleteGroup(chmsGroup.id)" title="Delete">
+                    <i class="fa fa-trash-o fa-2x text-red"></i>
+                </a>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <i class="fa fa-info-circle"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span><br/>
+                    <span class="jd-title">Meeting Time:&nbsp;&nbsp;</span><span class="jd-text">{{chmsGroup.meetingTime}}</span><br/>
+                    <span class="jd-title">Group Leader:&nbsp;&nbsp;</span><span class="jd-text">{{chmsGroup.groupLeader}}</span><br/>
+                    <span class="jd-title">Total Members:&nbsp;&nbsp;</span><span class="jd-text">{{chmsGroup.groupMembers.data.length}}</span><br/>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-flag-checkered"></i>&nbsp;&nbsp;<span class="jd-caption">Meeting Location</span>
+                    <address class="jd-text">
+                        {{chmsGroup.meetingLocation}}
+                    </address>
+                </div>
+            </div>
+            <div class="row col-md-12 jd-margin-top">
+                <div class="col-md-6">
+                    <i class="fa fa-briefcase"></i>&nbsp;&nbsp;<span class="jd-caption">Activities</span>
+
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;<span class="jd-caption">Attendance</span>
+                </div>
+            </div>
+            <div class="col-md-12 jd-margin-top">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="jd-page-header">Membership</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                            <a data-toggle="modal" title="Add Group Members" data-target="#group-members"><i class="fa fa-plus-circle fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-12" ng-if="chmsGroup.groupMembers.data.length > 0">
+                        <div class="col-md-2 col-xs-12 jd-padding-1" ng-repeat="m in chmsGroup.groupMembers.data">
+                            <div member-min-tile member="m" remove-member="removeGroupMember"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-if="!chmsGroup.groupMembers.data.length > 0">
+                        <div class="text-center text-danger">No group members found !</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add edit group modal -->
+<div ng-include="'views/groups/add-edit-group.html'"></div>
+
+<!-- group members modal -->
+<div ng-include="'views/groups/group-members.html'"></div>

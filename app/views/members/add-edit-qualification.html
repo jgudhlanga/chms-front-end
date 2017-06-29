@@ -1,0 +1,68 @@
+<script type="text/ng-template" id="add-edit-qualification.html">
+    <form method="post" role="form" ng-submit="saveQualification()">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times</span></button>
+            <h4 class="modal-title text-left">{{qualificationCrudTitle}}</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-if="successMessage" message message-class="alert alert-success" alert="Qualication successfully created, add another below"></div>
+            <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='qualificationLevel' class='col-md-3'>Level</label>
+                    <div class="col-md-9">
+                        <select id="qualificationLevel" class="form-control input-sm" ng-model="qualification.qualificationLevel">
+                            <option value="">--Select Level --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='name' class='col-md-3'>Qualification<i class="fa fa-asterisk jd-required"></i></label>
+                    <div class="col-md-9">
+                        <input type="text" id="name" required class="form-control input-sm" ng-model="qualification.name">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='institution' class='col-md-3'>Institution<i class="fa fa-asterisk jd-required"></i></label>
+                    <div class="col-md-9">
+                        <input type="text" id="institution" required class="form-control input-sm" ng-model="qualification.institution">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='year_obtained' class='col-md-3'>Year Obtained<i class="fa fa-asterisk jd-required"></i></label>
+                    <div class="col-md-9">
+                        <input type="text" id="year_obtained" required class="form-control input-sm" ng-model="qualification.yearObtained">
+                    </div>
+                </div>
+            </div>
+            <div class="row jd-div-margin-5">
+                <div class="form-group">
+                    <label for='subjects' class='col-md-3'>Major Subjects</label>
+                    <div class="col-md-9">
+                        <textarea rows="8" cols="80" id="subjects" class="form-control input-sm" ng-model="qualification.subjects">
+
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-sm btn-warning" type="button" ng-click="cancel()">
+                    <i class="fa fa-arrow-circle-o-left""></i>&nbsp;Exit
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i ng-if="!saving" class="fa fa-save">&nbsp;</i>
+                    <span ng-if="saving" loading loading-message="{{savingMessage}}"></span>
+                    <span ng-if="!saving">{{qualificationCrudButton}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</script>

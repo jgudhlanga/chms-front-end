@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="jd-page-header">{{chmsFamily.name}}Family</div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="/families"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+    </div>
+</div>
+
+<!--Loading-->
+<div ng-if="processing" loading loading-message="busy wait..." class="text-w"></div>
+
+<div class="row" ng-if="!processing">
+    <div class="col-md-12">
+        <div class="jd-border-container">
+            <div ng-if="message" message message-class="alert alert-{{messageClass}}" alert="{{message}}"></div>
+            <div ng-if="busyWait" loading loading-message="busy wait..." class="text-w"></div>
+            <div class="col-md-12 text-right">
+                <a ng-click="open()" title="Edit Family">
+                    <i class="fa fa-pencil fa-2x"></i>
+                </a>&nbsp;
+                <a ng-if="chmsFamily.isActive" title="Deactivate" ng-click="activateFamily(chmsFamily.id, 0)">
+                    <i class="fa fa-toggle-off fa-2x text-orange"></i>
+                </a>
+                <a ng-if="!chmsFamily.isActive" title="Activate" ng-click="activateFamily(chmsFamily.id, 1)">
+                    <i class="fa fa-toggle-on fa-2x text-green"></i>
+                </a>
+                &nbsp;<a ng-click="deleteFamily(chmsFamily.id)" title="Delete">
+                    <i class="fa fa-trash-o fa-2x text-red"></i>
+                </a>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <i class="fa fa-info-circle"></i>&nbsp;&nbsp;<span class="jd-caption">Info</span><br/>
+                    <span class="jd-title">Family Name:&nbsp;&nbsp;</span><span class="text-b">{{chmsFamily.name}}</span><br/>
+                    <span class="jd-title">Family Leader:&nbsp;&nbsp;</span><span class="text-b">{{chmsFamily.familyHead}}</span><br/>
+                    <span class="jd-title">Total Members:&nbsp;&nbsp;</span><span class="text-b">{{chmsFamily.familyMembers.data.length}}</span><br/>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-flag-checkered"></i>&nbsp;&nbsp;<span class="jd-caption">Address</span>
+                    <address>
+                        {{chmsFamily.location}}
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row jd-margin-top">
+                    <div class="col-md-6">
+                        <div class="jd-page-header">Family Members</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                            <a data-toggle="modal" title="Add Family Members" data-target="#family-members"><i class="fa fa-plus-circle fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-12" ng-if="chmsFamily.familyMembers.data.length > 0">
+                        <div class="col-md-2 col-xs-12 jd-padding-1" ng-repeat="m in chmsFamily.familyMembers.data">
+                            <div member-min-tile member="m" remove-member="removeFamilyMember"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-if="!chmsFamily.familyMembers.data.length > 0">
+                        <div class="text-center text-danger">No family members found !</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Add edit family-->
+<div ng-include="'views/families/add-edit-family.html'"></div>
+<!-- group members modal -->
+<div ng-include="'views/families/family-members.html'"></div>

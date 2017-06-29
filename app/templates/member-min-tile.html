@@ -1,0 +1,13 @@
+<div class="jd-mini-box">
+    <div class="col-md-3 jd-padding-1">
+        <img class="img-circle img-responsive profile-pic-min " ng-src="images/unknown.png"/>
+    </div>
+    <div class="col-md-9 text">
+        <span class="title"><a href="/member/profile/{{member.memberId}}">{{member.memberInitial}}.&nbsp;{{member.memberSurname}}</a></span><br/>
+        <span>Role:</span><span>My Role</span><br/>
+        <span>Since:</span><span>2001</span><br/>
+        <div class="row text-right">
+            <a ng-click="removeMember()(member.id)"><i class="fa fa-times fa-1x text-danger"></i></a>
+        </div>
+    </div>
+</div>

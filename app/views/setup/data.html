@@ -1,0 +1,32 @@
+<div ng-controller="ProvinceCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jd-page-header">Provinces</div>
+        </div>
+        <div class="col-md-6 text-right">
+             <a href="/setup"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+             <a href="/province-dashboard"><i class="fa fa-bar-chart fa-2x"></i></a>
+             <a ng-click="open()"><i class="fa fa-plus-circle fa-2x"></i></a>
+        </div>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize ui-grid-exporter ui-grid-move-columns class="grid"></div>
+
+    <!--ADD PROVINCE MODAL-->
+    <div ng-include="'views/setup/add-edit-province.html'"></div>
+</div>
+
+<div ng-controller="CityCtrl" class="jd-margin-top">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jd-page-header">Cities</div>
+        </div>
+        <div class="col-md-6 text-right">
+             <a href="/setup"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+             <a href="/city-dashboard"><i class="fa fa-bar-chart fa-2x"></i></a>
+             <a ng-click="open()"><i class="fa fa-plus-circle fa-2x"></i></a>
+        </div>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize ui-grid-exporter ui-grid-move-columns class="grid"></div>
+    <!--ADD CITY MODAL-->
+    <div ng-include="'views/setup/add-edit-city.html'"></div>
+</div>

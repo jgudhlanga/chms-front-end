@@ -1,0 +1,89 @@
+<!--<div class="jd-banner">
+    <a href="/">{{appDefaults.appTitle}}<span>&nbsp;-&nbsp;CHMS</span></a>
+    <span class="jd-toggle-container">
+        <a data-target="#jdSideBarLeft" id="jdToggleLeft" class="jd-hide">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a data-target="#jdSideBarLeft" id="jdToggleRight">
+            <i class="fa fa-bars"></i>
+        </a>
+    </span>
+</div>
+<div class="jd-user-panel">
+    <span ng-if="isLoggedIn">
+        <a href="/">
+            <i class="fa fa-envelope-o"></i>
+            <sup class="jd-sup-default">9</sup>
+        </a>&nbsp;&nbsp;
+        <a href="/">
+            <i class="fa fa-bell-o"></i>
+            <sup class="jd-sup-amazon">10</sup>
+        </a>&nbsp;&nbsp;
+        <a href="/">
+            <i class="fa fa-flag-o"></i>
+            <sup class="jd-sup-bullet">10</sup>
+        </a>&nbsp;&nbsp;
+    </span>
+    <span ng-if="!isLoggedIn">
+        <a href="/register">
+            <i class="fa fa-user-plus"></i>&nbsp;Register
+        </a>
+    </span>
+    <span ng-if="isLoggedIn">
+        <a href="user/profile" >{{loggedUser.firstName}}&nbsp;{{loggedUser.surname}}</a>
+        &nbsp;|&nbsp;
+        <a ng-click="logout()">
+            <i class="fa fa-sign-out"></i>&nbsp;Logout
+        </a>
+    </span>
+</div>
+<script src="scripts/custom-js/jdev-controls.js"></script>-->
+  <div class="container-fluid jd-user-panel">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/">
+          <span class="jd-app-brand">{{appDefaults.appTitle}}</span>
+          <span class="jd-brand-inverse">&nbsp;-&nbsp;CHMS</span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li ng-if="isLoggedIn">
+              <a href="/">
+                  <i class="fa fa-envelope-o"></i>
+                  <sup class="jd-sup-default">9</sup>
+              </a>
+          </li>
+          <li ng-if="isLoggedIn">
+              <a href="/">
+                  <i class="fa fa-bell-o"></i>
+                  <sup class="jd-sup-amazon">10</sup>
+              </a>
+          </li>
+          <li ng-if="isLoggedIn">
+              <a href="/">
+                  <i class="fa fa-flag-o"></i>
+                  <sup class="jd-sup-bullet">10</sup>
+              </a>
+         </li>
+          <li ng-if="!isLoggedIn">
+              <a href="/register">
+                  <i class="fa fa-user-plus"></i>&nbsp;Register
+              </a>
+          </li>
+          <li ng-if="isLoggedIn">
+              <a href="user/profile" >{{loggedUser.firstName}}&nbsp;{{loggedUser.surname}}</a>
+          </li>
+          <li ng-if="isLoggedIn">
+               <a ng-click="logout()">
+                  <i class="fa fa-sign-out"></i>&nbsp;Logout
+                </a>
+            </li>
+      </ul>
+    </div>
+  </div>

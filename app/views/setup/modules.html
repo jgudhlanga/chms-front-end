@@ -1,0 +1,70 @@
+<!-- Header -->
+<div page-header page-title="Modules Setup" links="true"
+     link-1="true" link-url-1="/setup" link-class-1="btn btn-default btn-xs" link-icon-1="fa fa-chevron-left" link-title-1="Back"
+     link-2="true" link-url-2="module/add" link-class-2="btn btn-primary btn-xs" link-icon-2="fa fa-plus-circle" link-title-2="New Module">
+</div>
+<!--Message -->
+<div ng-if="message" message message-class="alert alert-info" alert="{{message}}"></div>
+<div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+<!--loading-->
+<div ng-if="loadSystemModules" loading ></div>
+  
+<div class="row" ng-show="!loadSystemModules">
+    <div class="col-md-12"><div class="jd-border-container">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Name</th><th>Title</th>
+                        <th>Path</th><th>Description</th>
+                        <th>Icon</th><th>Order</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="chmsModules.length === 0">
+                        <td colspan="10"><div class="alert alert-danger">No modules found!</div></td>
+                    </tr>
+                    <tr ng-if="chmsModules.length > 0" ng-repeat="module in chmsModules | orderObjectBy: 'position' ">
+                        <td>
+                            <a href="/module/edit/{{module.id}}"><i class="fa fa-pencil text-success"></i></a>
+                        </td>
+                        <td>
+                            <a href="/modulepages/{{module.id}}">
+                                Pages <span class="badge text-primary">{{module.pages.data | objectLength }}</span>
+                            </a>
+                        </td>
+                        <td>{{module.name}}</td><td>{{module.title}}</td>
+                        <td>{{module.path}}</td><td>{{module.description}}</td>
+                        <td><i class="{{module.module_icon_class}}"></i></td>
+                        <td>
+                            <button class="btn btn-xs btn-primary" ng-click="orderModule(module.id, 'up')">
+                                <i class="fa fa-arrow-circle-up"></i>
+                            </button>
+                            <button class="btn btn-xs btn-info" ng-click="orderModule(module.id, 'down')">
+                                <i class="fa fa-arrow-circle-down"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn  btn-success btn-xs" ng-if="!module.isActive" ng-click="activateModule(module.id, 1)">
+                                <i class="fa fa-toggle-on"></i> Activate
+                            </button>
+                            <button class="btn  btn-warning btn-xs" ng-if="module.isActive" ng-click="activateModule(module.id, 0)">
+                                <i class="fa fa-toggle-on"></i> Deactivate
+                            </button>
+                        </td>
+                        <td class="text-right">
+                            <button class="btn btn-danger btn-xs" ng-click="deleteModule(module.id)">
+                                <i class="fa fa-trash-o"></i>&nbsp;Delete
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

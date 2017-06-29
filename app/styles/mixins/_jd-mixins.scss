@@ -1,0 +1,44 @@
+@mixin jdGradient($orientation: linear, $from: $jd-color-b, $to: lighten($jd-color-a, 20%)){
+  background: -webkit-gradient($orientation, 0%, 0%, 0%, 100% from($from), to($to));/*Safari 4-5, Chrome 1-9*/
+  background: -moz-+$orientation+-gradient(left, $from,  $to);/*Firefox 3.6+*/
+  background: -ms-+$orientation+-gradient(left, $from,  $to);/*IE 10*/
+  background: -o-+$orientation+-gradient(left, $from,  $to);/*Opera 11.10+*/
+  background: -webkit-+$orientation+-gradient(left, $from,  $to); /*Safari 5.1, Chrome 10+*/
+}
+
+@mixin jdRotate($angle: 90)
+{
+  -ms-transform: rotate($angle+deg); /* IE 9 */
+  -webkit-transform: rotate($angle+deg); /* Chrome, Safari, Opera */
+  transform: rotate($angle+deg);
+}
+@mixin jdTransition($milSec: 0.3s, $orient: linear)
+{
+  -webkit-transition: all $milSec $orient;
+  -o-transition: all $milSec $orient;
+  transition: all $milSec $orient;
+}
+
+@mixin jdRadius($t:3px, $r:3px, $b:3px, $l:3px)
+{
+  -moz-border-radius: $t $r $b $l;
+  -webkit-border-radius: $t $r $b $l;
+   border-radius: $t $r $b $l;
+}
+@mixin jdRadius-p($p:100%)
+{
+  -moz-border-radius: $p;
+  -webkit-border-radius: $p;
+   border-radius: $p;
+}
+
+@mixin jdBox($color:lighten($jd-color-b, 70%), $borderTop: 1px, $borderOther:1px, $radius: 3px, $marginTop: 5px)
+{
+  border-top: $borderTop solid $color;
+  @include jdRadius();
+  border-bottom: $borderOther solid $color;
+  border-right: $borderOther solid $color;
+  border-left: $borderOther solid $color;
+  overflow: hidden;
+  margin-top: $marginTop;
+}

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="jd-page-header">{{pageTitle}}
+            <div ng-if="links" class="jd-page-right">
+                <a ng-if="link1" href="{{linkUrl1}}" class="{{linkClass1}}"><i class="{{linkIcon1}}"></i>&nbsp;{{linkTitle1}}</a>
+                <a ng-if="link2" href="{{linkUrl2}}" class="{{linkClass2}}"><i class="{{linkIcon2}}"></i>&nbsp;{{linkTitle2}}</a>
+                <a ng-if="link3" href="{{linkUrl3}}" class="{{linkClass3}}"><i class="{{linkIcon3}}"></i>&nbsp;{{linkTitle3}}</a>
+                <a ng-if="modalBtn1"  class="{{modalBtn1Class}}" ng-click="modalBtnClick()" ><i class="{{modalBtn1Icon}}"></i>&nbsp;{{modalBtn1Title}}</a>
+            </div>
+        </div>
+    </div>
+</div>

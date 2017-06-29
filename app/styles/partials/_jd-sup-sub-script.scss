@@ -1,0 +1,33 @@
+/* Superscript, Subscript */
+.jd-sup-default {
+  @extend %sup;
+  color: lighten($jd-color-e, 20%);
+}
+.jd-sup-warning{
+  @extend %sup;
+  color: $jd-color-c;
+}
+.jd-sup-amazon{
+  @extend %sup;
+  color: $jd-color-f !important;
+}
+.jd-sup-neutral{
+  @extend %sup;
+  color: $jd-color-g;
+}
+.jd-sup-lime{
+  @extend %sup;
+  color: $jd-color-h;
+}
+.jd-sup-pacific{
+  @extend %sup;
+  color: $jd-color-i;
+}
+.jd-sup-bullet{
+  @extend %sup;
+  color: $jd-color-j;
+}
+.jd-required{
+  color: $jd-color-j !important; font-size: 8px !important;
+  display: inline-block; text-align: right; margin-left: 5px;
+}

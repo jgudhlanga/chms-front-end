@@ -1,0 +1,15 @@
+<div ng-if="isLoggedIn">
+    <div ng-if="loadingModules" loading loading-message="loading data please wait..." class="text-w"></div>
+
+    <div ng-if="message" message message-class="alert alert-info" alert="{{message}}"></div>
+    <div ng-if="error" message message-class="alert alert-danger" alert="{{error}}"></div>
+
+    <div class="row"  ng-if="!loadingModules">
+        <div class="col-md-12">
+            <h2>Welcome</h2>
+        </div>
+    </div>
+</div>
+<div ng-if="!isLoggedIn">
+    <div ng-include="'views/login/login.html'"></div>
+</div>
